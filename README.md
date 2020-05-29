@@ -13,7 +13,7 @@ edintino@docler:~$ conda activate edintino_cifar10
 
 ## Pretrained model selection
 
-As far as I know the deeper a CNN model the more abstract features we can abstract with the convolutional layers. Furthemore as I am not going to train the body of the CNN ideally I would like to have as many extracted features as possible and see wheter among those there are more important ones also. Thus I will look for a pretrained body with high feature output, acceptable run time on my machine and performance on a simple head.
+As far as I know the deeper a CNN model the more abstract features we can extract with the convolutional layers. Furthemore as I am not going to train the body of the CNN ideally I would like to have as many extracted features as possible and see wheter among those there are more important ones also. Thus I will look for a pretrained body with high feature output, acceptable run time on my machine and performance on a simple head.
 
 I am going to compare multiple pretrained bodies and change the head into a simple linear layer with as many outputs as many classes there are in the CIFAR10. The head will be trained only for one epoch just to see how they perform in order of magnitude relative to each other. The bodies I compared are
 
@@ -47,6 +47,10 @@ In this scenario I used the active learning described above, I did change the he
 ## Results
 
 
+| Baseline model | Robust model |
+|-------------------------------------------------|----------------------------------------------|
+|![](images/model_training.png "Traininig losses")|![](images/robust_model_training.png "Traininig losses")|
+|![](images/model_durability.png "FGSM attack")|![](images/robust_model_durability.png "FGSM attack")|
 
 ## Deployment
 
