@@ -59,4 +59,4 @@ Note: First I found strange that with higher epsilon value the accuracy is incre
 
 ## Deployment
 
-Though I do not have much experience in deployment yet, I would write a distributed code for my CNN and save the model for faster real-time responses. The model would be deployed in a docker image, to set up a unique production enviroment. For the incoming images I would have two limits, a maximum batch size and a maximum wait time, whichever is hit, the model would run.
+Though I do not have much experience in deployment yet, I would write a distributed code for my CNN and save the model for faster real-time responses. The model would be deployed in an NVIDIA-docker image to set up a unique production enviroment. For the incoming images I would have two limits, a maximum batch size and a maximum wait time, whichever is hit, the model would run.
