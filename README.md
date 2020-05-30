@@ -46,11 +46,17 @@ In this scenario I used the active learning described above, I did change the he
 
 ## Results
 
+The baseline model we can see that after second epoch it has no loss on the training set and no furter knowledge is gained from training. The large gap indicates overfit on the training set, which is consolidated by the FGSM attack plots, where the accuracy is nearly perfect on the train set while it is only 0.72 on the test set. Introducing non zero epsilons the performance drastically drops especially for the test set for near zero epsilon, which further validate the idea of over fitting.
 
-| Baseline model | Robust model |
-|-------------------------------------------------|----------------------------------------------|
-|![](images/model_training.png "Traininig losses")|![](images/robust_model_training.png "Traininig losses")|
-|![](images/model_durability.png "FGSM attack")|![](images/robust_model_durability.png "FGSM attack")|
+On the other hand during the robust model training we see a slight, but consistent decrement in the losses and the gap is narrowing down. Furthermore on the FGMS attack we can see that the model performs near identically on both train and test set, reassuring is. The train accuracy with 0 epsilon is 0.72, while for the test it is 0.71. This is a minimal trade-off for a much robust model, as it not fails as miserably for low epsilon attacks as the previous models next to having a much less overfit like nature.
+
+Note: First I found strange that with higher epsilon value the accuracy is increasing, however the perturbations become mure indetifiable, thus the sudden drop in accuracy at low epsilons followed by a local maxima.
+
+| | Baseline model | Robust model |
+|--------------------------|--------------------------|--------------------------|
+| Training cross entropy |![](images/model_training.png "Traininig losses")|![](images/robust_model_training.png "Traininig losses")|
+| FGSM attack accuracy |![](images/model_durability.png "FGSM attack")|![](images/robust_model_durability.png "FGSM attack")|
 
 ## Deployment
 
+Though I do not have much experience in deployment yet, I would write a distributed code for my CNN and save the model for faster real-time responses. The model would be deployed in a docker image, to set up a unique production enviroment. For the incoming images I would have two limits, a maximum batch size and a maximum wait time, whichever is hit, the model would run.
