@@ -7,8 +7,8 @@ Use a subset (1000 images) of the cifar10 dataset to obtain an as accurate and r
 ## Enviroment set up
 
 ```console
-edintino@docler:~$ conda env create -f edintino_cifar10.yml
-edintino@docler:~$ conda activate edintino_cifar10
+edintino@cifar10:~$ conda env create -f edintino_cifar10.yml
+edintino@cifar10:~$ conda activate edintino_cifar10
 ```
 
 ## Pretrained model selection
